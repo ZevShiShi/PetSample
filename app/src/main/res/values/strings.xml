@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">PetSample</string>
+    <string name="tab_health">Heath</string>
+    <string name="tab_health_loc">Location</string>
+    <string name="tab_photo">Album</string>
+    <string name="tab_momment">PetConnect</string>
+</resources>

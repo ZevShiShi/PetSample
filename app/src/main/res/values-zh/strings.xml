@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">PetSample</string>
+    <string name="tab_health">健康</string>
+    <string name="tab_health_loc">定位</string>
+    <string name="tab_photo">相册</string>
+    <string name="tab_momment">社交</string>
+</resources>
