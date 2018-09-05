@@ -19,7 +19,7 @@ import com.petconnect.petsample.R;
  */
 public class LoctionFragment extends Fragment {
 
-    private int resId = R.drawable.bg_loc;
+    private int resId = R.drawable.bg_loc_livetracking;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,19 +36,17 @@ public class LoctionFragment extends Fragment {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 switch (resId) {
-                    case R.drawable.bg_loc:
-                        resId = R.drawable.bg_his;
-                        v.setBackgroundResource(resId);
+                    case R.drawable.bg_loc_livetracking:
+                        resId = R.drawable.bg_loc_breadcrumb;
                         break;
-                    case R.drawable.bg_his:
-                        resId = R.drawable.bg_ele;
-                        v.setBackgroundResource(resId);
+                    case R.drawable.bg_loc_breadcrumb:
+                        resId = R.drawable.bg_loc_fence;
                         break;
-                    case R.drawable.bg_ele:
-                        resId = R.drawable.bg_loc;
-                        v.setBackgroundResource(resId);
+                    case R.drawable.bg_loc_fence:
+                        resId = R.drawable.bg_loc_livetracking;
                         break;
                 }
+                v.setBackgroundResource(resId);
                 return false;
             }
         });

@@ -69,7 +69,8 @@ public class MainActivity extends AppCompatActivity {
                     PhotoFragment pf = (PhotoFragment) fragmentList.get(position);
                     if (pf.getResId() == R.drawable.bg_video_record1
                             || pf.getResId() == R.drawable.bg_video_record2
-                            || pf.getResId() == R.drawable.bg_video_record3) {
+                            || pf.getResId() == R.drawable.bg_video_record3
+                            || pf.getResId() == R.drawable.bg_live_stream) {
                         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
                     }
                 }

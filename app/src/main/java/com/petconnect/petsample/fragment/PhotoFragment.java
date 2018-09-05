@@ -55,6 +55,9 @@ public class PhotoFragment extends Fragment {
                         resId = R.drawable.bg_video_record3;
                         break;
                     case R.drawable.bg_video_record3:
+                        resId = R.drawable.bg_live_stream;
+                        break;
+                    case R.drawable.bg_live_stream:
                         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
                         resId = R.drawable.bg_private_albums;
                         break;
