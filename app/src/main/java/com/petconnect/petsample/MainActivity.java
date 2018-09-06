@@ -12,6 +12,7 @@ import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.petconnect.petsample.entity.TabEntity;
 import com.petconnect.petsample.fragment.CommFragment;
 import com.petconnect.petsample.fragment.HealthFragment;
+import com.petconnect.petsample.fragment.HealthGifFragment;
 import com.petconnect.petsample.fragment.LoctionFragment;
 import com.petconnect.petsample.fragment.PhotoFragment;
 
@@ -41,9 +42,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        boolean type = getIntent().getBooleanExtra(BootActivity.BOOT_TYPE, false);
+
         mTabLayout = findViewById(R.id.main_BottomBar);
         final ArrayList<Fragment> fragmentList = new ArrayList<>();
-        fragmentList.add(new HealthFragment());
+        if (type) {
+            fragmentList.add(new HealthFragment());
+        } else {
+            fragmentList.add(new HealthGifFragment());
+        }
+
         fragmentList.add(new LoctionFragment());
         fragmentList.add(new PhotoFragment());
         fragmentList.add(new CommFragment());

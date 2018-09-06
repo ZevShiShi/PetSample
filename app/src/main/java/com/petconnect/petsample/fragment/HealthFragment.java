@@ -33,6 +33,8 @@ public class HealthFragment extends Fragment {
         resId = R.drawable.bg_heart_month;
         rootView.setBackgroundResource(resId);
 
+
+
         rootView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {

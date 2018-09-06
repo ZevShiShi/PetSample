@@ -25,6 +25,7 @@
             android:background="#ffffff"
             app:tl_iconHeight="23dp"
             app:tl_iconWidth="23dp"
+            app:tl_textBold="BOTH"
             app:tl_indicator_height="0dp"
             app:tl_textSelectColor="@color/colorPrimary"
             app:tl_textUnselectColor="@color/bg_tab_bottom_normal"
