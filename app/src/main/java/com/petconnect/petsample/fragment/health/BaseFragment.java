@@ -1,6 +1,7 @@
 package com.petconnect.petsample.fragment.health;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -35,7 +36,7 @@ public class BaseFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.health_gif_fragment_item, container, false);
         ivBg = rootView.findViewById(R.id.iv_bg);
-//        ivBg.setClickable(true);
+        ivBg.setClickable(true);
         return rootView;
     }
 
@@ -69,22 +70,25 @@ public class BaseFragment extends Fragment {
         ivBg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RequestOptions options = new RequestOptions()
-                        .placeholder(loadPicRes)
-                        .error(loadPicRes);
                 if (!isTouch) {
                     isTouch = true;
+                    RequestOptions options = new RequestOptions()
+                            .centerInside()
+                            .priority(Priority.LOW)
+                            .placeholder(loadPicRes)
+                            .error(loadPicRes);
+                    
                     Glide.with(getActivity())
                             .asGif()
                             .load(loadGifRes)
                             .apply(options)
                             .into(ivBg);
-                } else {
-                    isTouch = false;
-                    Glide.with(getActivity())
-                            .load(loadPicRes)
-                            .apply(options)
-                            .into(ivBg);
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            stopGif();
+                        }
+                    }, 3000);
                 }
             }
         });
@@ -93,12 +97,11 @@ public class BaseFragment extends Fragment {
 
     public void stopGif() {
         if (mLoadPicRes != 0 && isTouch) {
+            isTouch = false;
             RequestOptions options = new RequestOptions()
-                    .placeholder(mLoadPicRes)
                     .centerInside()
                     .priority(Priority.LOW)
-//                    .skipMemoryCache(true)
-//                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .placeholder(mLoadPicRes)
                     .error(mLoadPicRes);
             Glide.with(getActivity())
                     .load(mLoadPicRes)
